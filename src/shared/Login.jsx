@@ -18,7 +18,7 @@ const Login = () => {
           </div>
           <div
             className="absolute top-[288px] left-0 right-0 mt-8  bg-white  p-6
-           rounded-3xl shadow-md mb-10 "
+           rounded-3xl  mb-10 "
           >
             <div className=" inset-0  flex items-center justify-center mt-6">
               <h1 className="text-[#373737] text-[24px] font-medium">LOGIN</h1>

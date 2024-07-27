@@ -9,7 +9,7 @@ import password from "../assets/images/lock.png";
 const Signup = () => {
   return (
     <>
-      <div className=" flex  items-center justify-center bg-gray-100">
+      <div className=" flex  items-center justify-center bg-gray-100 ">
         <div className="bg-white shadow-md  overflow-hidden  w-full">
           <div className="relative">
             <img
@@ -20,7 +20,7 @@ const Signup = () => {
           </div>
           <div
             className="absolute top-[148px] left-0 right-0  mt-8  bg-white  p-6
-           rounded-3xl shadow-md mb-10 "
+           rounded-3xl  mb-3 "
           >
             <div className=" inset-0  flex items-center justify-center mt-6">
               <h1 className="text-[#373737] text-[24px] font-medium">SIGNUP</h1>
