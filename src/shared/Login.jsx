@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import loginIamge from "../assets/images/loginbackground.png";
 import loginButton from "../assets/images/loginbutton.png";
-import person from  '../assets/images/user.png'
-import line  from '../assets/images/line.png'
-import password from '../assets/images/lock.png'
+import person from "../assets/images/user.png";
+import line from "../assets/images/line.png";
+import password from "../assets/images/lock.png";
 const Login = () => {
   return (
     <>
@@ -17,8 +17,8 @@ const Login = () => {
             />
           </div>
           <div
-            className="absolute top-[288px] left-0 right-0 bottom-0 mt-8  bg-white  p-6
-           rounded-3xl shadow-md h-screen "
+            className="absolute top-[288px] left-0 right-0 mt-8  bg-white  p-6
+           rounded-3xl shadow-md mb-10 "
           >
             <div className=" inset-0  flex items-center justify-center mt-6">
               <h1 className="text-[#373737] text-[24px] font-medium">LOGIN</h1>
@@ -92,7 +92,7 @@ const Login = () => {
                 </span>
                 <a
                   href="/sign-up"
-                  className="text-[#2D52A3] font-semibold hover:underline ml-2"
+                  className="text-[#2D52A3] font-semibold hover:underline ml-2 "
                 >
                   Sign Up
                 </a>

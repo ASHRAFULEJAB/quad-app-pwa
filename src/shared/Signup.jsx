@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import loginIamge from "../assets/images/loginbackground.png";
-import loginButton from "../assets/images/loginbutton.png";
+import signupImage from "../assets/images/signupimage.png";
+import camera from "../assets/images/camera.png";
 import person from "../assets/images/user.png";
 import line from "../assets/images/line.png";
 import password from "../assets/images/lock.png";
@@ -18,8 +19,8 @@ const Signup = () => {
             />
           </div>
           <div
-            className="absolute top-[288px] left-0 right-0 bottom-0 mt-8  bg-white  p-6
-           rounded-3xl shadow-md h-screen "
+            className="absolute top-[148px] left-0 right-0  mt-8  bg-white  p-6
+           rounded-3xl shadow-md mb-10 "
           >
             <div className=" inset-0  flex items-center justify-center mt-6">
               <h1 className="text-[#373737] text-[24px] font-medium">SIGNUP</h1>
@@ -27,6 +28,24 @@ const Signup = () => {
             <h2 className="text-center text-[14px] font-normal text-[#7D7D7D] mb-4">
               Please enter your credentials to proceed
             </h2>
+            <div className="flex justify-center items-center my-5 mb-5">
+              <div className="relative w-24 h-24 ">
+                <img
+                  src={signupImage}
+                  alt="Profile"
+                  className="w-24 h-24 rounded-full object-cover"
+                />
+                <div className="absolute bottom-0 right-0">
+                  <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                    <img
+                      src={camera}
+                      alt="Lock"
+                      className="w-4 h-4 text-white"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
             <form>
               <div className="mb-4">
                 <label className="block text-gray-600 mb-2 font-semibold">
