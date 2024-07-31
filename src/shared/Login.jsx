@@ -1,10 +1,80 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import loginIamge from "../assets/images/loginbackground.png";
 import loginButton from "../assets/images/loginbutton.png";
 import person from "../assets/images/user.png";
 import line from "../assets/images/line.png";
 import password from "../assets/images/lock.png";
+import { useState } from "react";
+import LanguageSelector from "../component/LanguageSelector";
+import { Link } from "react-router-dom";
+const labels = {
+  pt: {
+    title: "QUAD-HCM",
+    username: "Utilizador",
+    password: "Senha",
+    login: "Entrar",
+  },
+  "en-uk": {
+    title: "QUAD-HCM",
+    username: "Username",
+    password: "Password",
+    login: "Login",
+  },
+  "en-us": {
+    title: "QUAD-HCM",
+    username: "Username",
+    password: "Password",
+    login: "Login",
+  },
+  de: {
+    title: "QUAD-HCM",
+    username: "Benutzername",
+    password: "Passwort",
+    login: "Anmelden",
+  },
+  es: {
+    title: "QUAD-HCM",
+    username: "Usuario",
+    password: "Contraseña",
+    login: "Iniciar sesión",
+  },
+  fr: {
+    title: "QUAD-HCM",
+    username: "Nom d'utilisateur",
+    password: "Mot de passe",
+    login: "Connexion",
+  },
+  it: {
+    title: "QUAD-HCM",
+    username: "Nome utente",
+    password: "Password",
+    login: "Accedi",
+  },
+  ru: {
+    title: "QUAD-HCM",
+    username: "Имя пользователя",
+    password: "Пароль",
+    login: "Войти",
+  },
+  zh: {
+    title: "QUAD-HCM",
+    username: "用户名",
+    password: "密码",
+    login: "登录",
+  },
+  ko: {
+    title: "QUAD-HCM",
+    username: "사용자 이름",
+    password: "비밀번호",
+    login: "로그인",
+  },
+};
 const Login = () => {
+  const [language, setLanguage] = useState("pt");
+  const handleLanguageChange = (value) => {
+    setLanguage(value);
+  };
   return (
     <>
       <div className=" flex  items-center justify-center bg-gray-100">
@@ -15,7 +85,17 @@ const Login = () => {
               alt="Cover"
               className="w-full h-full object-cover"
             />
+            <div
+              className="absolute top-0 right-0   mt-4 mr-4 flex items-center bg-transparent
+             p-2 rounded-full "
+            >
+              <LanguageSelector
+                language={language}
+                onChange={handleLanguageChange}
+              />
+            </div>
           </div>
+
           <div
             className="absolute top-[288px] left-0 right-0 mt-8  bg-white  p-6
            rounded-3xl  mb-10 "
@@ -69,7 +149,7 @@ const Login = () => {
               <div className="flex items-end justify-end mb-6">
                 <a
                   href="#"
-                  className="text-sm text-[#2D52A3] hover:underline font-semibold"
+                  className="text-sm text-[#8AB53E] hover:underline font-semibold"
                 >
                   Forgot Password?
                 </a>
@@ -77,10 +157,10 @@ const Login = () => {
               <div className="flex">
                 <button
                   type="submit"
-                  className="w-full py-4 px-2 bg-[#2D52A3] text-white rounded-md
-                 hover:bg-[#2D52A3] transition duration-200"
+                  className="w-full py-4 px-2 bg-[#8AB53E] text-white rounded-md
+                 hover:bg-[#8AB53E] transition duration-200"
                 >
-                  LOGIN
+                  <Link to="/employee"> LOGIN</Link>
                 </button>
                 <div className="bg-[#EEEEEE] rounded-md p-3 ml-5">
                   <img src={loginButton} alt="" className="w-[46px]" />
@@ -92,7 +172,7 @@ const Login = () => {
                 </span>
                 <a
                   href="/sign-up"
-                  className="text-[#2D52A3] font-semibold hover:underline ml-2 "
+                  className="text-[#8AB53E] font-semibold hover:underline ml-2 "
                 >
                   Sign Up
                 </a>

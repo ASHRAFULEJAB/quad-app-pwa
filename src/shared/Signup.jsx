@@ -5,8 +5,76 @@ import camera from "../assets/images/camera.png";
 import person from "../assets/images/user.png";
 import line from "../assets/images/line.png";
 import password from "../assets/images/lock.png";
+import LanguageSelector from "../component/LanguageSelector";
+import { useState } from "react";
+const labels = {
+  pt: {
+    title: "QUAD-HCM",
+    username: "Utilizador",
+    password: "Senha",
+    login: "Entrar",
+  },
+  "en-uk": {
+    title: "QUAD-HCM",
+    username: "Username",
+    password: "Password",
+    login: "Login",
+  },
+  "en-us": {
+    title: "QUAD-HCM",
+    username: "Username",
+    password: "Password",
+    login: "Login",
+  },
+  de: {
+    title: "QUAD-HCM",
+    username: "Benutzername",
+    password: "Passwort",
+    login: "Anmelden",
+  },
+  es: {
+    title: "QUAD-HCM",
+    username: "Usuario",
+    password: "Contraseña",
+    login: "Iniciar sesión",
+  },
+  fr: {
+    title: "QUAD-HCM",
+    username: "Nom d'utilisateur",
+    password: "Mot de passe",
+    login: "Connexion",
+  },
+  it: {
+    title: "QUAD-HCM",
+    username: "Nome utente",
+    password: "Password",
+    login: "Accedi",
+  },
+  ru: {
+    title: "QUAD-HCM",
+    username: "Имя пользователя",
+    password: "Пароль",
+    login: "Войти",
+  },
+  zh: {
+    title: "QUAD-HCM",
+    username: "用户名",
+    password: "密码",
+    login: "登录",
+  },
+  ko: {
+    title: "QUAD-HCM",
+    username: "사용자 이름",
+    password: "비밀번호",
+    login: "로그인",
+  },
+};
 
 const Signup = () => {
+  const [language, setLanguage] = useState("pt");
+  const handleLanguageChange = (value) => {
+    setLanguage(value);
+  };
   return (
     <>
       <div className=" flex  items-center justify-center bg-gray-100 ">
@@ -17,6 +85,15 @@ const Signup = () => {
               alt="Cover"
               className="w-full h-full object-cover"
             />
+            <div
+              className="absolute top-0 right-0   mt-4 mr-4 flex items-center bg-transparent
+             p-2 rounded-full "
+            >
+              <LanguageSelector
+                language={language}
+                onChange={handleLanguageChange}
+              />
+            </div>
           </div>
           <div
             className="absolute top-[148px] left-0 right-0  mt-8  bg-white  p-6
@@ -36,7 +113,7 @@ const Signup = () => {
                   className="w-24 h-24 rounded-full object-cover"
                 />
                 <div className="absolute bottom-0 right-0">
-                  <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-[#8AB53E] rounded-full flex items-center justify-center">
                     <img
                       src={camera}
                       alt="Lock"
@@ -109,8 +186,8 @@ const Signup = () => {
               <div className="flex">
                 <button
                   type="submit"
-                  className="w-full py-4 px-2 bg-[#2D52A3] text-white rounded-md
-                 hover:bg-[#2D52A3] transition duration-200"
+                  className="w-full py-4 px-2 bg-[#8AB53E] text-white rounded-md
+                 hover:bg-[#8AB53E] transition duration-200"
                 >
                   SIGNUP
                 </button>
@@ -121,7 +198,7 @@ const Signup = () => {
                 </span>
                 <a
                   href="/"
-                  className="text-[#2D52A3] font-semibold hover:underline ml-2"
+                  className="text-[#8AB53E] font-semibold hover:underline ml-2"
                 >
                   Login
                 </a>
