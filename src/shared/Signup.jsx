@@ -86,7 +86,7 @@ const Signup = () => {
               className="w-full h-full object-cover"
             />
             <div
-              className="absolute top-0 right-0   mt-4 mr-4 flex items-center bg-transparent
+              className="absolute top-0 right-0    mt-4 mr-4 flex items-center bg-transparent
              p-2 rounded-full "
             >
               <LanguageSelector
