@@ -1,6 +1,6 @@
 import React from "react";
-import Attendence from "../assets/images/attendence.png";
-import Graph from "../assets/images/graph.png";
+import Attendence from "../../assets/images/attendence.png";
+import Graph from "../../assets/images/graph.png";
 
 const AttendanceIndexCard = () => {
   return (

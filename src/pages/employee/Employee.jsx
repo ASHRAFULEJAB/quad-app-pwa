@@ -4,9 +4,11 @@ import Carticon from "../../assets/images/IconCart.png";
 import Ticketicon from "../../assets/images/ticket-2.png";
 import Notification from "../../assets/images/IconNotification.png";
 import Profileicon from "../../assets/images/IconProfile.png";
-import AttendanceIndexCard from "../../component/AttendanceIndexCard";
+import AttendanceIndexCard from "../../component/employee/AttendanceIndexCard";
 import Clock from "../../assets/images/clock.png";
 import Calender from "../../assets/images/calendar-tick.png";
+import AppointmentSection from "../../component/employee/AppionmentSection";
+import HeaderWithSearch from "../../component/employee/HeaderWithSearch";
 
 const Employee = () => {
   return (
@@ -18,8 +20,9 @@ const Employee = () => {
             428 x 50
           </div>
         </div> */}
-
+        <HeaderWithSearch />
         {/* Appointment Section */}
+        <AppointmentSection />
         {/* <div className="bg-green-100 p-6 rounded-lg shadow-lg mb-6 relative">
           <div className="text-lg font-semibold text-gray-700">appointment</div>
           <p className="text-gray-500">
@@ -40,7 +43,7 @@ const Employee = () => {
         </div> */}
 
         {/* Metrics Section */}
-        <div className="grid grid-cols-2 gap-4 mb-6 mt-14">
+        <div className="grid grid-cols-2 gap-4 mb-6 mt-6">
           <div>
             <div className="bg-[#CFDEE7] p-4 rounded-xl   border border-[#BED4E1]">
               <div className="flex items-center">
