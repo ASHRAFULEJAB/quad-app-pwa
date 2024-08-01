@@ -3,6 +3,8 @@ import App from "../App";
 import Login from "../shared/Login";
 import Signup from "../shared/Signup";
 import Employee from "../pages/employee/Employee";
+import Notification from "../pages/notifications/Notification";
+import Tickets from "../pages/tickets/Tickets";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
   {
     path: "/employee",
     element: <Employee />,
+  },
+  {
+    path: "/notification",
+    element: <Notification />,
+  },
+  {
+    path: "/tickets",
+    element: <Tickets />,
   },
 ]);
 export default router;

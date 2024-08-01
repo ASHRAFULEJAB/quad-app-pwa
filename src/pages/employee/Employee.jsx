@@ -1,14 +1,12 @@
 import React from "react";
-import Homeicon from "../../assets/images/IconHome.png";
-import Carticon from "../../assets/images/IconCart.png";
-import Ticketicon from "../../assets/images/ticket-2.png";
-import Notification from "../../assets/images/IconNotification.png";
-import Profileicon from "../../assets/images/IconProfile.png";
+
 import AttendanceIndexCard from "../../component/employee/AttendanceIndexCard";
 import Clock from "../../assets/images/clock.png";
 import Calender from "../../assets/images/calendar-tick.png";
 import AppointmentSection from "../../component/employee/AppionmentSection";
 import HeaderWithSearch from "../../component/employee/HeaderWithSearch";
+
+import FooterNavigation from "../FooterNavigation";
 
 const Employee = () => {
   return (
@@ -159,26 +157,7 @@ const Employee = () => {
         </div>
 
         {/* Footer Navigation */}
-        <div
-          className="fixed bottom-0 left-0 right-0 bg-[#FFFFFF] p-4 flex justify-around 
-        shadow-md rounded-b-2xl"
-        >
-          <button className="text-green-500">
-            <img src={Homeicon} alt="" />
-          </button>
-          <button className="text-gray-400">
-            <img src={Carticon} alt="" />
-          </button>
-          <button className="text-gray-400">
-            <img src={Ticketicon} alt="" />
-          </button>
-          <button className="text-gray-400">
-            <img src={Notification} alt="" />
-          </button>
-          <button className="text-gray-400">
-            <img src={Profileicon} alt="" />
-          </button>
-        </div>
+        <FooterNavigation/>
       </div>
     </>
   );
