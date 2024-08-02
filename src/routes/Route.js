@@ -7,6 +7,7 @@ import Notification from "../pages/notifications/Notification";
 import Tickets from "../pages/tickets/Tickets";
 import NewTickets from "../pages/tickets/NewTickets";
 import ETicketDetails from "../pages/tickets/ETicketDetails";
+import ClockMarking from "../pages/absenses/ClockMarking";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/e-ticketsdetails",
     element: <ETicketDetails />,
+  },
+  {
+    path: "/absense-clockmarking",
+    element: <ClockMarking />,
   },
 ]);
 export default router;

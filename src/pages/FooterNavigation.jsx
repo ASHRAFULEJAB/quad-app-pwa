@@ -73,13 +73,17 @@ const FooterNavigation = () => {
         </button>
       </Link>
 
-      <button
-        className={
-          location.pathname === "/profile" ? "text-[#8AB53E]" : "text-[#C1C1C1]"
-        }
-      >
-        <img src={Profileicon} alt="Profile" />
-      </button>
+      <Link to="/absense-clockmarking">
+        <button
+          className={
+            location.pathname === "/profile"
+              ? "text-[#8AB53E]"
+              : "text-[#C1C1C1]"
+          }
+        >
+          <img src={Profileicon} alt="Profile" />
+        </button>
+      </Link>
     </div>
   );
 };
