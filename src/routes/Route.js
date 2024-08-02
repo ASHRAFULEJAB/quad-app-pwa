@@ -5,6 +5,8 @@ import Signup from "../shared/Signup";
 import Employee from "../pages/employee/Employee";
 import Notification from "../pages/notifications/Notification";
 import Tickets from "../pages/tickets/Tickets";
+import NewTickets from "../pages/tickets/NewTickets";
+import ETicketDetails from "../pages/tickets/ETicketDetails";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
   {
     path: "/tickets",
     element: <Tickets />,
+  },
+  {
+    path: "/new-tickets",
+    element: <NewTickets />,
+  },
+  {
+    path: "/e-ticketsdetails",
+    element: <ETicketDetails />,
   },
 ]);
 export default router;
