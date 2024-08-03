@@ -8,6 +8,7 @@ import Tickets from "../pages/tickets/Tickets";
 import NewTickets from "../pages/tickets/NewTickets";
 import ETicketDetails from "../pages/tickets/ETicketDetails";
 import ClockMarking from "../pages/absenses/ClockMarking";
+import Absences from "../pages/absenses/Absences";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/absense-clockmarking",
     element: <ClockMarking />,
+  },
+  {
+    path: "/absenses",
+    element: <Absences />,
   },
 ]);
 export default router;

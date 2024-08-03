@@ -61,7 +61,7 @@ const FooterNavigation = () => {
         </button>
       </Link>
 
-      <Link to="/notification">
+      <Link to="/absenses">
         <button
           className={
             location.pathname === "/notification"
