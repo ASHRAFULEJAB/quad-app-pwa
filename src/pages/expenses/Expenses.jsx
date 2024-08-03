@@ -6,6 +6,8 @@ import search from "../../assets/images/search-normal.png";
 import FooterNavigation from "../FooterNavigation";
 import StatisticsChart from "./StatisticsChart";
 import Shopping from "../../assets/images/bag-tick.png";
+import Monitor from "../../assets/images/monitor.png";
+import Food from "../../assets/images/food-dinner-svgrepo-com.png";
 
 const Expenses = () => {
   // Data for the bar chart
@@ -39,9 +41,9 @@ const Expenses = () => {
   //   };
   const iconMap = {
     shopping: Shopping,
-    // computer: ComputerIcon,
-    // food: FoodIcon,
-    // laptop: LaptopIcon,
+    computer: Monitor,
+    food: Food,
+    laptop: Monitor,
   };
 
   const expenses = [
@@ -72,7 +74,6 @@ const Expenses = () => {
     <>
       {" "}
       <div className="p-4 mb-20">
-        {/* Header Section */}
         <div className=" bg-tranparent  rounded-b-lg mt-16">
           {/* Top Section with Icons and Title */}
           <div className="flex items-center justify-between mb-4">
@@ -100,6 +101,7 @@ const Expenses = () => {
 
           {/* Search Bar */}
         </div>
+        {/* Header Section */}
 
         {/* Statistics Section */}
         <div className="mb-6">
@@ -125,10 +127,10 @@ const Expenses = () => {
           {expenses.map((expense, index) => (
             <div
               key={index}
-              className="flex justify-between items-center bg-white p-3 rounded-lg shadow-md"
+              className="flex justify-between items-center bg-white p-3 rounded-lg "
             >
               <div className="flex items-center space-x-4">
-                <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-md bg-[#F8F8F8] border border-[#D9D9D9]  flex items-center justify-center">
                   <img
                     src={iconMap[expense.icon]}
                     alt={expense.label}
@@ -142,13 +144,13 @@ const Expenses = () => {
                   <p className="text-xs text-gray-500">{expense.date}</p>
                 </div>
               </div>
-              <p className="text-green-500 font-semibold">{expense.amount}</p>
+              <p className="text-[#8AB53E] font-semibold">{expense.amount}</p>
             </div>
           ))}
         </div>
 
         {/* Floating Action Button */}
-        <button className="fixed bottom-16 right-4 bg-green-500 p-4 rounded-full text-white shadow-lg">
+        <button className="fixed bottom-16 right-4 bg-[#8AB53E] p-4 rounded-full text-white shadow-lg">
           <FiPlus className="text-2xl" />
         </button>
       </div>
