@@ -73,7 +73,7 @@ const FooterNavigation = () => {
         </button>
       </Link>
 
-      <Link to="/absense-clockmarking">
+      <Link to="/expanses">
         <button
           className={
             location.pathname === "/profile"

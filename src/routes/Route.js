@@ -9,6 +9,7 @@ import NewTickets from "../pages/tickets/NewTickets";
 import ETicketDetails from "../pages/tickets/ETicketDetails";
 import ClockMarking from "../pages/absenses/ClockMarking";
 import Absences from "../pages/absenses/Absences";
+import Expenses from "../pages/expenses/Expenses";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/absenses",
     element: <Absences />,
+  },
+  {
+    path: "/expanses",
+    element: <Expenses />,
   },
 ]);
 export default router;

@@ -13,6 +13,7 @@ import Prev from "../../assets/images/Prev.png";
 import search from "../../assets/images/search-normal.png";
 import taskSquare from "../../assets/images/task-square.png";
 import FooterNavigation from "../FooterNavigation";
+import { Link } from "react-router-dom";
 
 const Absences = () => {
   return (
@@ -153,7 +154,9 @@ const Absences = () => {
               className="absolute bottom-0 right-0 p-4 bg-[#8AB53E]
              text-white rounded-full shadow-md"
             >
-              <FiPlus className="size-6 font-bold" />
+              <Link to="/absense-clockmarking">
+                <FiPlus className="size-6 font-bold" />
+              </Link>
             </button>
           </div>
         </div>
