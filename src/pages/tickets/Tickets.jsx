@@ -19,7 +19,7 @@ const Tickets = () => {
   };
   return (
     <div>
-      <div className=" bg-tranparent  rounded-b-lg mt-16">
+      <div className=" bg-tranparent  rounded-b-lg ">
         {/* Top Section with Icons and Title */}
         <div className="flex items-center justify-between mb-4">
           {/* Menu Icon */}

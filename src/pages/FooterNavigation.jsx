@@ -7,6 +7,7 @@ import Profileicon from "../assets/images/IconProfile.png";
 import { Link, useLocation } from "react-router-dom";
 import CartIcon from "../assets/images/Icon - Cart.png";
 import ticket2 from "../assets/images/ticket2.png";
+import homehastag from "../assets/images/home-hashtag.png";
 
 const FooterNavigation = () => {
   const location = useLocation(); // To get the current URL path
@@ -24,7 +25,11 @@ const FooterNavigation = () => {
               : "text-[#C1C1C1]"
           }
         >
-          <img src={Homeicon} alt="Home" className="text-[#8AB53E]" />
+          {/* <img src={Homeicon} alt="" className="text-[#8AB53E]" /> */}
+          <img
+            src={location.pathname === "/employee" ? Homeicon : homehastag}
+            alt="Home"
+          />
         </button>
       </Link>
 

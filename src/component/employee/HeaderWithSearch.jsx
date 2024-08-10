@@ -4,7 +4,7 @@ import notifications from "../../assets/images/Notifications.png";
 
 const HeaderWithSearch = () => {
   return (
-    <div className=" bg-tranparent  rounded-b-lg mt-10">
+    <div className=" bg-tranparent  rounded-b-lg">
       {/* Top Section with Icons and Title */}
       <div className="flex items-center justify-between mb-4">
         {/* Menu Icon */}
