@@ -8,6 +8,7 @@ import StatisticsChart from "./StatisticsChart";
 import Shopping from "../../assets/images/bag-tick.png";
 import Monitor from "../../assets/images/monitor.png";
 import Food from "../../assets/images/food-dinner-svgrepo-com.png";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 const Expenses = () => {
   // Data for the bar chart
@@ -93,7 +94,9 @@ const Expenses = () => {
               className="relative flex items-center justify-center 
            "
             >
-              <img src={search} alt="" className="h-7 w-7 mr-3 " />
+              <FaMagnifyingGlass className="mr-2 size-6" />
+
+              {/* <img src={search} alt="" className="h-7 w-7 mr-3 " /> */}
               {/* <FiBell className="text-xl text-gray-600" />
           <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-green-400 rounded-full"></span> */}
             </div>

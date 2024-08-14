@@ -23,7 +23,7 @@ const HeaderWithSearch = () => {
           className="relative flex items-center justify-center 
           rounded-full "
         >
-          <img src={notifications} alt="" className="h-16 w-10 object-cover" />
+          <img src={notifications} alt="" className="h-16 w-10 object-cover mt-4"  />
           {/* <FiBell className="text-xl text-gray-600" />
           <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-green-400 rounded-full"></span> */}
         </div>

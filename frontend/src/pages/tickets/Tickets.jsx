@@ -9,6 +9,7 @@ import Sms from "../../assets/images/sms.png";
 import SmsNotification from "../../assets/images/sms-notification.png";
 import plusVector from "../../assets/images/Vector.png";
 import { Link } from "react-router-dom";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 const Tickets = () => {
   const [activeTab, setActiveTab] = useState("received");
@@ -38,7 +39,9 @@ const Tickets = () => {
             className="relative flex items-center justify-center 
            "
           >
-            <img src={search} alt="" className="h-7 w-7 mr-3 " />
+            <FaMagnifyingGlass className="mr-2 size-6" />
+
+            {/* <img src={search} alt="" className="h-7 w-7 mr-3 " /> */}
             {/* <FiBell className="text-xl text-gray-600" />
           <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-green-400 rounded-full"></span> */}
           </div>

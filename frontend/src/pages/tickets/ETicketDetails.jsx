@@ -2,6 +2,7 @@ import React from "react";
 import FooterNavigation from "../FooterNavigation";
 import search from "../../assets/images/search-normal.png";
 import menuLeft from "../../assets/images/menu-left.png";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 const ETicketDetails = () => {
   return (
@@ -27,7 +28,9 @@ const ETicketDetails = () => {
             className="relative flex items-center justify-center 
            "
           >
-            <img src={search} alt="" className="h-7 w-7 mr-3 " />
+            <FaMagnifyingGlass className="mr-2 size-6" />
+
+            {/* <img src={search} alt="" className="h-7 w-7 mr-3 " /> */}
             {/* <FiBell className="text-[13px] text-[#7D7D7D]" />
           <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-green-400 rounded-full"></span> */}
           </div>
