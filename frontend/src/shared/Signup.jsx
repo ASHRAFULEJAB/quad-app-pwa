@@ -7,6 +7,7 @@ import line from "../assets/images/line.png";
 import password from "../assets/images/lock.png";
 import LanguageSelector from "../component/LanguageSelector";
 import { useState } from "react";
+import { toast } from "react-toastify";
 const labels = {
   pt: {
     title: "QUAD-HCM",
@@ -75,6 +76,73 @@ const Signup = () => {
   const handleLanguageChange = (value) => {
     setLanguage(value);
   };
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [utilizador, setUtilizador] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ utilizador, email, password }), // Include utilizador
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("Registration successful!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        setTimeout(() => {
+          window.location.href = "/"; // Redirect to login or home page
+        }, 3000);
+      } else {
+        setError(data.message);
+        toast.error(data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    } catch (error) {
+      console.error("Error registering:", error);
+      setError("An unexpected error occurred. Please try again.");
+      toast.error("An unexpected error occurred. Please try again.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
   return (
     <>
       <div className=" flex  items-center justify-center bg-gray-100 ">
@@ -123,10 +191,32 @@ const Signup = () => {
                 </div>
               </div>
             </div>
-            <form>
+            <form onSubmit={handleSignup}>
               <div className="mb-4">
                 <label className="block text-gray-600 mb-2 font-semibold">
-                  User Name
+                  Username
+                </label>
+                <div className="flex items-center border bg-[#F8F8F8] border-[#D9D9D9] rounded-md">
+                  <span className="px-3">
+                    <div className="flex gap-3">
+                      <img src={person} alt="" />
+                      <img src={line} alt="" />
+                    </div>
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="John Doe"
+                    className="flex-1 py-2.5 px-4 text-gray-700  border-[#D9D9D9] bg-[#F8F8F8] focus:outline-none 
+      focus:ring-2 focus:ring-[#D9D9D9] rounded-md"
+                    value={utilizador}
+                    onChange={(e) => setUtilizador(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-gray-600 mb-2 font-semibold">
+                  Email
                 </label>
                 <div className="flex items-center border bg-[#F8F8F8] border-[#D9D9D9] rounded-md">
                   <span className="px-3">
@@ -141,6 +231,8 @@ const Signup = () => {
                     className="flex-1 py-2.5 px-4 text-gray-700  border-[#D9D9D9] bg-[#F8F8F8] focus:outline-none 
                     focus:ring-2
                      focus:ring-[#D9D9D9] rounded-md"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
               </div>
@@ -160,6 +252,8 @@ const Signup = () => {
                     placeholder="************"
                     className="flex-1 py-2 px-4 text-gray-700 focus:outline-none focus:ring-2
                     border-[#D9D9D9] bg-[#F8F8F8] focus:ring-[#D9D9D9] rounded-md"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </div>
@@ -179,9 +273,14 @@ const Signup = () => {
                     placeholder="************"
                     className="flex-1 py-2 px-4 text-gray-700 focus:outline-none focus:ring-2
                     border-[#D9D9D9] bg-[#F8F8F8] focus:ring-[#D9D9D9] rounded-md"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                 </div>
               </div>
+              {error && (
+                <div className="text-red-500 text-center mb-4">{error}</div>
+              )}
 
               <div className="flex">
                 <button

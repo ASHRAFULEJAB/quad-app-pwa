@@ -7,7 +7,10 @@ import line from "../assets/images/line.png";
 import password from "../assets/images/lock.png";
 import { useState } from "react";
 import LanguageSelector from "../component/LanguageSelector";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Import the toast CSS
+
 const labels = {
   pt: {
     title: "QUAD-HCM",
@@ -71,12 +74,82 @@ const labels = {
   },
 };
 const Login = () => {
+  // const [language, setLanguage] = useState("pt");
+  // const handleLanguageChange = (value) => {
+  //   setLanguage(value);
+  // };
+
   const [language, setLanguage] = useState("pt");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
   const handleLanguageChange = (value) => {
     setLanguage(value);
   };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Show a success toast and then navigate
+        toast.success("Login successful!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        // Redirect after 3 seconds (same as toast autoClose time)
+        setTimeout(() => {
+          navigate("/employee");
+        }, 3000);
+      } else {
+        // Show error message
+        setError(data.message);
+        toast.error(data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      setError("An unexpected error occurred. Please try again.");
+      toast.error("An unexpected error occurred. Please try again.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
   return (
     <>
+      {/* ToastContainer is required to display toasts */}
+      <ToastContainer />
       <div className=" flex  items-center justify-center bg-gray-100">
         <div className="bg-white shadow-md  overflow-hidden  w-full">
           <div className="relative">
@@ -106,7 +179,7 @@ const Login = () => {
             <h2 className="text-center text-[14px] font-normal text-[#7D7D7D] mb-4">
               Welcome back! you've been missed!
             </h2>
-            <form>
+            <form onSubmit={handleLogin}>
               <div className="mb-4">
                 <label className="block text-gray-600 mb-2 font-semibold">
                   User Name
@@ -124,6 +197,8 @@ const Login = () => {
                     className="flex-1 py-2.5 px-4 text-gray-700  border-[#D9D9D9] bg-[#F8F8F8] focus:outline-none 
                     focus:ring-2
                      focus:ring-[#D9D9D9] rounded-md"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
               </div>
@@ -143,9 +218,14 @@ const Login = () => {
                     placeholder="************"
                     className="flex-1 py-2 px-4 text-gray-700 focus:outline-none focus:ring-2
                     border-[#D9D9D9] bg-[#F8F8F8] focus:ring-[#D9D9D9] rounded-md"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </div>
+              {error && (
+                <div className="text-red-500 text-center mb-4">{error}</div>
+              )}
               <div className="flex items-end justify-end mb-6">
                 <a
                   href="#"
@@ -155,12 +235,20 @@ const Login = () => {
                 </a>
               </div>
               <div className="flex">
-                <button
+                {/* <button
                   type="submit"
                   className="w-full py-4 px-2 bg-[#8AB53E] text-white rounded-md
                  hover:bg-[#8AB53E] transition duration-200"
                 >
                   <Link to="/employee"> LOGIN</Link>
+                </button> */}
+
+                <button
+                  type="submit"
+                  className="w-full py-4 px-2 bg-[#8AB53E] text-white rounded-md
+                       hover:bg-[#8AB53E] transition duration-200"
+                >
+                  LOGIN
                 </button>
                 <div className="bg-[#EEEEEE] rounded-md p-3 ml-5">
                   <img src={loginButton} alt="" className="w-[46px]" />
